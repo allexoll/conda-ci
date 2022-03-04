@@ -4,8 +4,9 @@ runs:
   using: "composite"
   steps:
     - uses: dbhi/qus/action@main
-        with:
-          targets: aarch64
+      with:
+        targets: aarch64
+
     - name: build
       run: docker run --rm --privileged -v ${PWD}:/ --platform=linux/arm64 "ubuntu:latest" "/bin/bash" "./actionscript.sh" 
 
