@@ -5,6 +5,7 @@ runs:
   steps:
     - name: qus
       run: docker run --rm --privileged aptman/qus -s -- -p
+      shell: bash
     - name: build
       run: |
         if [ $SKIP ]; then
