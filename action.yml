@@ -4,7 +4,7 @@ runs:
   using: "composite"
   steps:
     - name: qus
-      run: docker run --rm --privileged aptman/qus -s -- -p
+      run: docker run --rm --privileged aptman/qus -s -- -p aarch64
       shell: bash
     - name: build
       run: |
