@@ -6,12 +6,10 @@ runs:
     # - name: qus
     #   run: docker run --rm --privileged aptman/qus -s -- -p aarch64
     #   shell: bash
-    name: Build on ubuntu-18.04 armv7
-    steps:
+    - name: Build on ubuntu-18.04 armv7
       - uses: actions/checkout@v2.1.0
       - uses: uraimo/run-on-arch-action@v2
         name: Run commands
-        id: runcmd
         with:
           arch: aarch64
           distro: ubuntu20.04
@@ -25,10 +23,12 @@ runs:
             uname -a
             echo ::set-output name=uname::$(uname -a)
 
-      - name: Get the output
+    - name: Get the output
         # Echo the `uname` output parameter from the `runcmd` step
         run: |
           echo "The uname output was ${{ steps.runcmd.outputs.uname }}"
+
+
     - name: build
       run: |
         if [ $SKIP ]; then
