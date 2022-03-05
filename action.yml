@@ -3,25 +3,16 @@ description: 'Build a package'
 runs:
   using: "composite"
   steps:
-    # - name: qus
-    #   run: docker run --rm --privileged aptman/qus -s -- -p aarch64
-    #   shell: bash
-    - name: Build on ubuntu-18.04 armv7
-      - uses: actions/checkout@v2.1.0
-      - uses: uraimo/run-on-arch-action@v2
-        name: Run commands
-        with:
-          arch: aarch64
-          distro: ubuntu20.04
+    - uses: uraimo/run-on-arch-action@v2
+      name: Run commands
+      with:
+        arch: aarch64
+        distro: ubuntu20.04
 
-          # Not required, but speeds up builds by storing container images in
-          # a GitHub package registry.
-          githubToken: ${{ github.token }}
-
-          # Set an output parameter `uname` for use in subsequent steps
-          run: |
-            uname -a
-            echo ::set-output name=uname::$(uname -a)
+        # Set an output parameter `uname` for use in subsequent steps
+        run: |
+          uname -a
+          echo ::set-output name=uname::$(uname -a)
 
     - name: Get the output
         # Echo the `uname` output parameter from the `runcmd` step
