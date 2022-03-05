@@ -3,7 +3,7 @@ description: 'Build a package'
 runs:
   using: "composite"
   steps:
-    - uses: uraimo/run-on-arch-action@v2
+    - uses: uraimo/run-on-arch-action@v2.1.1
       name: Run commands
       with:
         arch: aarch64
