@@ -18,7 +18,7 @@ else
         sys_name=MacOSX
     fi
     arch=$(arch | sed s/arm64/aarch64/ | sed s/amd64/x86_64/)
-
+    arch=aarch64
     wget --progress=dot:giga -c http://repo.continuum.io/miniconda/Miniconda3-latest-${sys_name}-${arch}.sh
     chmod a+x Miniconda3-latest-${sys_name}-${arch}.sh
     if [ ! -d $CONDA_PATH -o ! -z "$CI"  ]; then
