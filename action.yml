@@ -9,5 +9,5 @@ runs:
   steps:
     - name: build
       run: |
-        echo ${{ github.arch }} 
+        echo ${{ inputs.arch }} 
       shell: bash
